@@ -1,0 +1,55 @@
+<!-- add_employee.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee</title>
+  <style>
+    body {
+      background-color: black;
+      color: pink;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+    label {
+      margin-top: 10px;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: pink;
+      color: black;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Add Employee</h2>
+<form action="/add_employee" method="POST">
+  Name: <input type="text" name="name"><br>
+  Position: <input type="text" name="position"><br>
+  Salary: <input type="text" name="salary"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
