@@ -4,10 +4,12 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://batchumonasahasra22csm:sara0514@cluster0.lmldqog.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["smart_payroll"]
 employees_col = db["employees"]
 users_col = db["users"]
+print("Connected to MongoDB:", db.list_collection_names())
+
 
 @app.route('/')
 def home():
@@ -92,5 +94,5 @@ def login():
 def logout():
     return redirect(url_for('home'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
