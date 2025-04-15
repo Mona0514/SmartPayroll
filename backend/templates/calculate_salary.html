@@ -1,0 +1,63 @@
+<!-- calculate_salary.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculate Salary</title>
+  <style>
+    body {
+      background-color: black;
+      color: pink;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    select, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: pink;
+      color: black;
+      font-weight: bold;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calculate Salary</h2>
+  <form action="/calculate_salary" method="POST">
+    <select name="employee_id" required>
+      {% for emp in employees %}
+      <option value="{{ emp._id }}">{{ emp.name }} - {{ emp.position }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Calculate</button>
+  </form>
+
+  {% if salary %}
+  <div class="result">
+    <h3>Salary Details:</h3>
+    <p>Name: {{ selected_employee.name }}</p>
+    <p>Position: {{ selected_employee.position }}</p>
+    <p>Salary: ₹{{ selected_employee.salary }}</p>
+  </div>
+  {% endif %}
+
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
+

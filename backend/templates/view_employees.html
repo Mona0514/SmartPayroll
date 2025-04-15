@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Employees - SmartPayroll</title>
+  <style>
+    body {
+      background-color: black;
+      color: pink;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    table {
+      margin: 0 auto;
+      width: 80%;
+      border-collapse: collapse;
+      background-color: #111;
+      color: pink;
+      font-size: 16px;
+    }
+    th, td {
+      border: 1px solid pink;
+      padding: 12px;
+    }
+    th {
+      background-color: #222;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    a.button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: pink;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    a.button:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Employee List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for emp in employees %}
+      <tr>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.position }}</td>
+        <td>{{ emp.salary }}</td>
+        <td><a href="/edit/{{ emp._id }}">Edit</a></td>
+        <td><a href="/delete/{{ emp._id }}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="button" href="/home">Back to Home</a>
+
+<script src="/public/js/main.js"></script>
+
+</body>
+</html>
